@@ -15,14 +15,13 @@ $(document).ready(function(){
 	$(".timer").addClass("timeleft");
 	start();
 	$(".content").show();
+	});
 });
-
 
 
 //Reset timer
 function reset(){
-	time = 31
-	// start();
+	time = 31;
 }
 
 //Starts timer
@@ -33,22 +32,20 @@ function start() {
 
 //Gives the interval of the count/timer
 function count() {
-  time--;
-  // var converted = timeConverter(time);
-  $(".timer").html("Time Remaining: " + time);
+  	time--;
+  	$(".timer").html("Time Remaining: " + time);
 
-  if(time === 0){
-  	reset()
-  }
+		if(time === 0){
+	  		reset()
+  		}
 };
 
-});
+
+function check(){
+	
+}
 
 
-
-//Think about functions
-
-//Think about things when you click on things
 
 
 
