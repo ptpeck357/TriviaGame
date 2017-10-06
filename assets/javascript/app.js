@@ -1,5 +1,5 @@
 //Define and assign global variables
-var userinput;
+var checked = false;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
@@ -15,8 +15,9 @@ $(document).ready(function(){
 	$(".timer").addClass("timeleft");
 	start();
 	$(".content").show();
+	$("#done").show();
 	});
-});
+
 
 
 //Reset timer
@@ -36,17 +37,43 @@ function count() {
   	$(".timer").html("Time Remaining: " + time);
 
 		if(time === 0){
-	  		reset()
+	  		clearTimeout(intervalId);
   		}
 };
 
 
+//This function is executed after the button, "Done" is clicked
+
 function check(){
 	
+	var type = document.getElementsByName("q");
+	var len = type.length;
+	
+for (i = 0; i < len; i++) {
+		console.log(q.value)
+	}
+	
+	
+
+	// if(){
+	// 	incorrect++;
+	// }
+
+	// if(checked){
+	// 	unanswered++
+	// }
 }
 
+//When button, "Done" is clicked, it hides the button and calls the "check function"
 
-
+	$("#done").click(function(){
+	$(this).hide();
+	$(".content").hide();
+	clearTimeout(intervalId);
+	$(".timer").hide();
+	check();
+	});
+});
 
 
 
