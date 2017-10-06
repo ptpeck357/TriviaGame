@@ -39,9 +39,15 @@ button {
 	margin-bottom: 40px;
 } 
 
+.question{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 25px;
+	color: #1f1f14
+}
+
 .content {
 	font-family: "Times New Roman", Times, serif;
-	font-size: 30px;
+	font-size: 20px;
 	margin-top: 20px;
 }
 
