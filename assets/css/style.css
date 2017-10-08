@@ -54,3 +54,10 @@ button {
 #done {
 	margin-top: 40px;
 }
+
+#results {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 30px;
+	margin-top: 50px;
+	line-height: 50px;
+}
