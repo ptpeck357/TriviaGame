@@ -4,9 +4,7 @@ var incorrect = 0;
 var unanswered = 0;
 var time = 46;
 var intervalId;
-var answer;
 var notanswered;
-var answerbank = [];
 
 //Uploads results to the HTML
 function uploadresult(){
@@ -17,18 +15,20 @@ function uploadresult(){
 //see if the person check the radio inputs. Checks if the user inputs are the correct answer
 function check(){
 
-	for (var i = 0; i < answerbank.length; i++) {
-		answerbank[i] = parseInt(answerbank[i]);
-		if(answerbank[i] === 1){
-		correct++;
-		} 
-
-		else if(answerbank[i] === 0) {
-			incorrect++;
+	var radios = document.getElementsByTagName('input');
+	var value;
+		for (var i = 0; i < radios.length; i++) {
+    		if (radios[i].type === 'radio' && radios[i].checked) {
+			        value = radios[i].value;
+			        	if(value==='1'){
+			        		correct++;
+			        	} else {
+			        		incorrect++;
+			        	}
+			    } 
 		}
-	}
-	
-	notanswered = $("#question1 input").is(':checked');
+
+notanswered = $("#question1 input").is(':checked');
 	if(!notanswered){
 		unanswered++;
 	}
@@ -78,6 +78,14 @@ function check(){
 		unanswered++;
 	}
 
+	// var radios = $("#question9, #question10 input")
+	// 	var value;
+	// 		for (var i = 0; i < radios.length; i++) {
+	//     		if (!(radios[i].checked)){
+	// 			    	unanswered++;
+	// 			    }
+	// 		}
+
 uploadresult();
 };
 
@@ -116,13 +124,6 @@ $(document).ready(function(){
 });
 
 
-//Tet values from input radios
-	$('input').click(function() {
-		answer = $(this).val();
-		answerbank.push(answer);
-	});
-
-
 //When button, "Done" is clicked, it hides the button and calls the "check function"
 $("#done").click(function(){
 	$(this).hide();
@@ -132,4 +133,3 @@ $("#done").click(function(){
 	check();
 	});
 });
-
