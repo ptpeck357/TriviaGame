@@ -19,6 +19,7 @@ body {
 	border: 4px solid #a1a1a1;
 	border-radius: 10px;
 	width: 80%;
+	height: auto;
 }
 
 button {
@@ -52,7 +53,7 @@ button {
 }
 
 #done {
-	margin-top: 40px;
+	margin-top: 50px;
 }
 
 #results {

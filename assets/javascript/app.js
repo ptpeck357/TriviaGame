@@ -2,7 +2,7 @@
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-var time = 46;
+var time = 45;
 var intervalId;
 var notanswered;
 
@@ -12,7 +12,7 @@ function uploadresult(){
 	$("#results").html("Correct: " + correct + "<br>" + "Incorrect: " + incorrect + "<br>" +"unanswered: " + unanswered + "<br>");
 };
 
-//see if the person check the radio inputs. Checks if the user inputs are the correct answer
+//see if the person check the radio inputs by using a for-loop. Checks if the user inputs are the correct answer
 function check(){
 
 	var radios = document.getElementsByTagName('input');
@@ -28,7 +28,9 @@ function check(){
 			    } 
 		}
 
-notanswered = $("#question1 input").is(':checked');
+	//Since I hardcoded the questions, we have to call each of the inputs 
+	//from each question check whether or not they put an answer in
+	notanswered = $("#question1 input").is(':checked');
 	if(!notanswered){
 		unanswered++;
 	}
@@ -78,14 +80,7 @@ notanswered = $("#question1 input").is(':checked');
 		unanswered++;
 	}
 
-	// var radios = $("#question9, #question10 input")
-	// 	var value;
-	// 		for (var i = 0; i < radios.length; i++) {
-	//     		if (!(radios[i].checked)){
-	// 			    	unanswered++;
-	// 			    }
-	// 		}
-
+//Calls the function "uploadresult" to put everything onto the HTML page
 uploadresult();
 };
 
@@ -120,6 +115,7 @@ $(document).ready(function(){
 	$(".timer").addClass("timeleft");
 	start();
 	$(".content").show();
+	$(".timer").show();
 	$("#done").show();
 });
 
